@@ -1,0 +1,94 @@
+/* Ekran boyutlarına göre düzenlemeler */
+@media screen and (min-width: 768px) {
+    .media-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+
+    .media {
+        flex-basis: calc(33.33% - 20px);
+        margin-bottom: 20px;
+        box-sizing: border-box;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .media-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .media {
+        flex-basis: calc(50% - 20px);
+        margin-bottom: 20px;
+        box-sizing: border-box;
+    }
+}
+
+@media screen and (max-width: 520px) {
+    .media {
+        flex-basis: calc(100% - 20px);
+    }
+}
+
+/* Resimler */
+.media img {
+    max-width: 100%;
+    height: auto;
+}
+
+.fixed-size img {
+    width: 100%;
+    max-height: 200px; /* veya istediğiniz bir değer */
+    object-fit: cover;
+}
+
+/* Genel stiller */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+header {
+    background-color: rgb(171, 171, 171);
+    color: #fff;
+    padding: 1rem;
+    text-align: center;
+}
+
+main {
+    padding: 2rem;
+}
+
+.media-details {
+    flex-grow: 1;
+}
+
+/* Checkbox stilleri */
+.checkbox-label {
+    display: flex;
+    align-items: center;
+    margin-top: 0.5rem;
+}
+
+.checkbox-label input[type="checkbox"] {
+    margin-right: 0.5rem;
+}
+
+.checkbox-label span {
+    font-size: 0.8rem;
+}
+
+footer {
+    background-color: rgb(36, 107, 46);
+    color: #fff;
+    text-align: center;
+    padding: 0.05rem;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}

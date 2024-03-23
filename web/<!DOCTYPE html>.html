@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Filmler</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <img src="direct film's.png" alt="Logo">
+    </header>
+    <main>
+        <section>
+            <h2>Filmler</h2>
+            <div class="media-container">
+                <div class="media">
+                    <img src="shrek11.jpeg" alt="Film 1">
+                    <div class="media-details">
+                        <h3>Shrek 1</h3>
+                        <p>İzlediğim Tarih: 2024-03-03</p>
+                        <p>Puan: <input type="number" min="1" max="10"></p>
+                        <label class="checkbox-label">
+                            <input type="checkbox"> Sinemada İzledim
+                        </label>
+                    </div>
+                </div>
+                <div class="media">
+                    <img src="dune11.jpeg" alt="Film 2">
+                    <div class="media-details">
+                        <h3>Dune 1</h3>
+                        <p>İzlediğim Tarih: 2024-03-09</p>
+                        <p>Puan: <input type="number" min="1" max="10"></p>
+                        <label class="checkbox-label">
+                            <input type="checkbox"> Sinemada İzledim
+                        </label>
+                    </div>
+                </div>
+                <div class="media">
+                    <img src="shrek22.jpeg" alt="Film 3">
+                    <div class="media-details">
+                        <h3>shrek22</h3>
+                        <p>İzleme Tarihi: 2024-03-10</p>
+                        <p>Puan: <input type="number" min="1" max="10"></p>
+                        <label class="checkbox-label">
+                            <input type="checkbox"> Sinemada İzledim
+                        </label>
+                    </div>
+                </div>
+                <div class="media">
+                    <img src="dune22.jpeg" alt="Film 3">
+                    <div class="media-details">
+                        <h3>Dune 2-Çöl Gezegeni </h3>
+                        <p>İzlediğim Tarih: 2024-03-11</p>
+                        <p>Puan: <input type="number" min="1" max="10"></p>
+                        <label class="checkbox-label">
+                            <input type="checkbox"> Sinemada İzledim
+                        </label>
+                    </div>
+                </div>
+                <div class="media">
+                    <img src="lalaland1.jpeg" alt="Film 3">
+                    <div class="media-details">
+                        <h3>La La Land</h3>
+                        <p>İzlediğim Tarih: 2024-03-12</p>
+                        <p>Puan: <input type="number" min="1" max="10"></p>
+                        <label class="checkbox-label">
+                            <input type="checkbox"> Sinemada İzledim 
+                        </label>
+                    </div>
+                </div>
+                <div class="media">
+                    <img src="henry.jpeg" alt="Film 3">
+                    <div class="media-details">
+                        <h3>The Wonderful Story of Henry Sugar</h3>
+                        <p>İzleme Tarihi: 2024-03-13</p>
+                        <p>Puan: <input type="number" min="1" max="10"></p>
+                        <label class="checkbox-label">
+                            <input type="checkbox"> Sinemada İzledim
+                        </label>
+                    </div>
+                </div>
+                <div class="media">
+                    <img src="shrek3.jpeg" alt="Film 3">
+                    <div class="media-details">
+                        <h3>Shrek 3</h3>
+                        <p>İzlediğim Tarih: 2024-03-14</p>
+                        <p>Puan: <input type="number" min="1" max="10"></p>
+                        <label class="checkbox-label">
+                            <input type="checkbox"> Sinemada İzledim
+                        </label>
+                    </div>
+                </div>
+                <div class="media">
+                    <img src="kelebek.jpeg" alt="Film 3">
+                    <div class="media-details">
+                        <h3>Kelebeğin Rüyası</h3>
+                        <p>İzleme Tarihi: 2024-03-17</p>
+                        <p>Puan: <input type="number" min="1" max="10"></p>
+                        <label class="checkbox-label">
+                            <input type="checkbox"> Sinemada İzledim
+                        </label>
+                    </div>
+                </div>
+                <div class="media">
+                    <img src="karmakarışık.jpeg" alt="Film 3">
+                    <div class="media-details">
+                        <h3>Tangled</h3>
+                        <p>İzlediğim Tarih: 2024-03-20</p>
+                        <p>Puan: <input type="number" min="1" max="10"></p>
+                        <label class="checkbox-label">
+                            <input type="checkbox"> Sinemada İzledim
+                        </label>
+                    </div>
+                </div>
+                </div>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 Filmler</p>
+    </footer>
+
+    <script>
+        // Sayfa yüklendiğinde localStorage'dan verileri al ve uygula
+        document.addEventListener('DOMContentLoaded', function() {
+            const checkboxes = JSON.parse(localStorage.getItem('checkboxes')) || {};
+            Object.keys(checkboxes).forEach(id => {
+                const checkbox = document.querySelector(`input[data-id="${id}"].watched-checkbox`);
+                if (checkbox) {
+                    checkbox.checked = checkboxes[id];
+                }
+            });
+        });
+    
+        // Her checkbox değiştiğinde veriyi localStorage'a kaydet
+        document.addEventListener('change', function(event) {
+            const target = event.target;
+            if (target.matches('.watched-checkbox')) {
+                const id = target.getAttribute('data-id');
+                const checkboxes = JSON.parse(localStorage.getItem('checkboxes')) || {};
+                checkboxes[id] = target.checked;
+                localStorage.setItem('checkboxes', JSON.stringify(checkboxes));
+            }
+        });
+    </script>
+</body>
+</html>
